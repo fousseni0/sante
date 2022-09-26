@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\Personne;
+use App\Models\Medecin_dispo;
+use App\Models\Rendezvous;
+use App\Models\Specialite;
+use App\Models\Departement;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -18,11 +21,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -43,8 +42,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function personne()
+    public function medecin_dispos()
     {
-        return $this->belongsTo(Personne::class);
+        return $this->hasMany(Medecin_dispo::class);
+    }
+    public function rendezvouses()
+    {
+        return $this->hasMany(Rendezvous::class);
+    }
+    public function specialite()
+    {
+        return $this->belongsTo(Specialite::class);
+    }
+    public function departement()
+    {
+        return $this->belongsTo(Departement::class);
     }
 }

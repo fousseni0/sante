@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Prix;
-use App\Models\Medecin;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,8 +13,8 @@ class Departement extends Model
     {
         return $this->belongsTo(Prix::class);
     }
-    public function medecins()
+    public function users()
     {
-        return $this->hasMany(Medecin::class);
+        return $this->hasMany(User::class);
     }
 }

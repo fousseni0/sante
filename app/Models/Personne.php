@@ -12,10 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class personne extends Model
 {
-    public function utiisateurs()
-    {
-        return $this->hasMany(Utilisateur::class);
-    }
+   
     public function rendezvouses()
     {
         return $this->hasMany(Rendezvous::class);

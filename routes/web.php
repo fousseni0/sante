@@ -19,4 +19,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
+//inclusion du fichier de routinng de l'administrateur
+require __DIR__ . '/admin.php';
+
+//inclusion du fichier de routinng pour un medecin
+require __DIR__ . '/medecin.php';
+
+
+//inclusion du fichier de routinng pour un secretaire
+require __DIR__ . '/secretaire.php';

@@ -27,6 +27,18 @@
                         @enderror
                     </div>
 
+                    <div class="flex flex-wrap mb-4">
+                        <label for="prenom" class="block font-semibold text-gray-700 mb-2">
+                            {{ __('Prénom') }}
+                        </label>
+                        <input id="prenom" type="text" name="prenom" class="shadow border rounded w-full p-2" value="{{ old('prenom') }}" autocomplete="prenom" placeholder="Prénom d'utilisateur" autofocus>
+                       @error('prenom')
+                            <span class="mt-4 text-xs italic text-red-500">
+                                {{ $message }}
+                            </span>
+                        @enderror
+                    </div>
+
                     <!-- Email Address -->
                     <div class="flex flex-wrap mb-4">
                         <label for="email" class="block font-semibold text-gray-700 mb-2">
@@ -42,10 +54,15 @@
 
                     <div class="flex flex-wrap mb-4">
                         <label for="level" class="block font-semibold text-gray-700 mb-2">
-                            {{ __('Niveau') }}
+                            {{ __('Rôle') }}
                         </label>
-                        <input id="niveau" type="number" name="level" class="shadow border rounded w-full p-2" value="{{ old('patient') }}" autocomplete="level" placeholder="Votre niveau" autofocus>
-                        @error('level')
+                       <select id="role" type="role" name="role" class="shadow border rounded w-full p-2" >
+                       <option value=""></option>
+                       <option value="patient">Patient</option>
+                       <option value="medecin">Medecin</option>
+                       <option value="secretaire">Secretaire</option>
+                       </select>
+                        @error('role')
                             <span class="mt-4 text-xs italic text-red-500">
                                 <span>{{ $message }}</span>
                             </span>

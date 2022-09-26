@@ -15,7 +15,7 @@ class CreatePatientPathologiesTable extends Migration
     {
         Schema::create('patientPatologies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('personne_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('pathologie_id')->constrained();
             $table->timestamps();
         });

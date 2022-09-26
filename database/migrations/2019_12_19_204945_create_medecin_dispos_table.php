@@ -15,7 +15,7 @@ class CreateMedecinDisposTable extends Migration
     {
         Schema::create('medecin_dispos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('personne_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('jour_id')->constrained();
             $table->timestamps();
         });

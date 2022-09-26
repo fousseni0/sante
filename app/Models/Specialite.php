@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\Models\Personne;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class specialite extends Model
 {
-    public function personnes()
+    public function users()
     {
-        return $this->hasMany(Personne::class);
+        return $this->hasMany(User::class);
     }
 }

@@ -17,7 +17,7 @@ class CreateRendezvousesTable extends Migration
             $table->id();
             $table->dateTime('jour');
             $table->boolean('statut')->default(0);
-            $table->foreignId('personne_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
